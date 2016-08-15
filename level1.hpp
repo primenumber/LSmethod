@@ -17,6 +17,8 @@ Real sqnorm(const Vector &vec);
 
 Real abs(const Vector &vec);
 
+Real average(const Vector &vec);
+
 } // namespace math
 
 namespace std {

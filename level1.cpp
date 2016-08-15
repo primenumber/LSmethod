@@ -60,4 +60,8 @@ Real abs(const Vector &vec) {
   return cblas_dnrm2(vec.size(), vec.data(), 1);
 }
 
+Real average(const Vector &vec) {
+  return cblas_dasum(vec.size(), vec.data(), 1) / vec.size();
+}
+
 } // namespace math
