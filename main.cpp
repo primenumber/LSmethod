@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <cmath>
 #include <iostream>
 #include <random>
 
@@ -21,6 +22,7 @@ int main(int argc, char **argv) {
     std::cin >> vec[i];
   }
   std::cerr << "start" << std::endl;
+  std::cerr << spm.row_size << ',' << spm.col_size << ',' << spm.elems.size() << std::endl;
   boost::timer t;
   math::Vector res = math::CGLSMethod(spm, vec);
   math::Vector diff = spm * res - vec;
@@ -28,6 +30,9 @@ int main(int argc, char **argv) {
   for (math::Real val : res) {
     std::printf("%f\n", val);
   }
-  std::cerr << "error: " << math::abs(diff) << std::endl;
+  double error = math::abs(diff);
+  std::cerr << "error: " << error << std::endl;
+  std::cerr << "standard deviation: " << (error/std::sqrt(spm.row_size)) << std::endl;
+  std::cerr << "average absolute prediction error: " << math::average(diff) << std::endl;
   return 0;
 }
