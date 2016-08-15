@@ -28,7 +28,12 @@ Vector CGLSMethod(const SpMat &mat, const Vector &vec) {
     r = trans_mv(mat, d);
     Real diff = abs(r);
     if (diff < eps) break;
-    if ((i % 10) == 0) std::cerr << ' ' << diff << '\r';
+    if ((i % 10) == 0) {
+      Vector err = mat * x - vec;
+      Real nd = abs(err) / sqrt(vec.size());
+      Real av = average(err);
+      std::cerr << ' ' << diff << ' ' << nd << ' ' << av << '\r';
+    }
     Real old_sqn_r = sqn_r;
     sqn_r = sqnorm(r);
     Real beta = sqn_r / old_sqn_r;
