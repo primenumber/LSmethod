@@ -2,7 +2,6 @@
 #include <tuple>
 #include <vector>
 
-#include "sparse_matrix.hpp"
 #include "matrix.hpp"
 #include "level0.hpp"
 #include "level1.hpp"
