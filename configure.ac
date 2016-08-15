@@ -4,7 +4,7 @@
 AC_PREREQ([2.69])
 AC_INIT([LSmethod], [0.1], [prime@kmc.gr.jp])
 AM_INIT_AUTOMAKE([foreign])
-AC_CONFIG_SRCDIR([sparse_matrix.cpp])
+AC_CONFIG_SRCDIR([main.cpp])
 AC_CONFIG_HEADERS([config.h])
 
 : ${CXXFLAGS=""}
