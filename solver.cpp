@@ -8,7 +8,7 @@
 
 namespace math {
 
-Real eps = 1e-8;
+Real eps = 1.0;
 
 Vector CGLSMethod(const SpMat &mat, const Vector &vec) {
   Vector r = trans_mv(mat, vec);
