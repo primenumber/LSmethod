@@ -32,7 +32,7 @@ Vector CGLSMethod(const SpMat &mat, const Vector &vec) {
       Vector err = mat * x - vec;
       Real nd = abs(err) / sqrt(vec.size());
       Real av = average(err);
-      std::cerr << ' ' << diff << ' ' << nd << ' ' << av << '\r';
+      std::cerr << ' ' << diff << ' ' << nd << ' ' << av << '-' << '\r';
     }
     Real old_sqn_r = sqn_r;
     sqn_r = sqnorm(r);
