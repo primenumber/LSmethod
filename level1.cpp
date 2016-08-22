@@ -64,4 +64,8 @@ Real average(const Vector &vec) {
   return cblas_dasum(vec.size(), vec.data(), 1) / vec.size();
 }
 
+Real max(const Vector &vec) {
+  return vec[cblas_idamax(vec.size(), vec.data(), 1)];
+}
+
 } // namespace math

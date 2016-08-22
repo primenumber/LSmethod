@@ -19,6 +19,8 @@ Real abs(const Vector &vec);
 
 Real average(const Vector &vec);
 
+Real max(const Vector &vec);
+
 } // namespace math
 
 namespace std {
