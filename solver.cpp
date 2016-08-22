@@ -19,7 +19,7 @@ Vector CGLSMethod(const SpMat &mat, const Vector &vec) {
   p = r;
   t = mat * p;
   Real sqn_r = sqn_r_f.get();
-  for (int i = 0; ; ++i) {
+  for (int i = 0; i < 3000; ++i) {
     if ((i % 10) == 0) std::cerr << i;
     Real alpha = sqn_r / sqnorm(t);
     fma(x, alpha, p);
@@ -32,7 +32,8 @@ Vector CGLSMethod(const SpMat &mat, const Vector &vec) {
       Vector err = mat * x - vec;
       Real nd = abs(err) / sqrt(vec.size());
       Real av = average(err);
-      std::cerr << ' ' << diff << ' ' << nd << ' ' << av << '-' << '\r';
+      Real mx = alpha * max(p);
+      std::cerr << ' ' << diff << ' ' << nd << ' ' << av << ' ' << mx << '-' << '\r';
     }
     Real old_sqn_r = sqn_r;
     sqn_r = sqnorm(r);
